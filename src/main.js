@@ -36,6 +36,7 @@ import {
   QStepperNavigation,
   QSeparator,
   QDate,
+  QImg
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -72,6 +73,7 @@ Vue.use(Quasar, {
     QStepperNavigation,
     QSeparator,
     QDate,
+    QImg
   },
   directives: {
   },

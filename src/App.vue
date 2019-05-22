@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="glossy">
-      <q-toolbar>
+      <q-toolbar color="amber" text-color="dark" inverted>
         <q-btn
           flat
           dense
@@ -11,11 +11,12 @@
           icon="menu"
         />
 
-        <q-toolbar-title>
-          Quasar App
+
+        <q-toolbar-title color='red'>
+          Reciclar
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div></div>
       </q-toolbar>
     </q-header>
 
@@ -75,19 +76,21 @@
     </q-drawer>
 
     <q-page-container>
-      <HelloWorld />
+      <login />
+      <registro />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Login from './components/login.vue'
+import Registro from './components/registro.vue'
 
 export default {
   name: 'LayoutDefault',
 
   components: {
-    HelloWorld
+    Login
   },
 
   data () {
