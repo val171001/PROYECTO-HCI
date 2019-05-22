@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Reader</title>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>	
+    <style>
+            p {
+              background-color: lightgrey;
+              width: 300px;
+              border: 10px solid lightgreen;
+              padding: 30px;
+              margin: 20px;
+              font-family: "Times New Roman", Times, serif;
+              
+            }
+          
+              
+            
+
+            </style> 
+ </head>
+  <body background="http://getwallpapers.com/wallpaper/full/f/3/a/75384.jpg">
+   <div align="center"><video id="preview"></video></div>
+    <script>
+        let scanner = new Instascan.Scanner(
+            {
+                video: document.getElementById('preview')
+            }
+        );
+        scanner.addListener('scan', function(content) {
+            alert('Contenido del codigo QR: ' + content);
+            window.open(content, "_blank");
+        });
+        Instascan.Camera.getCameras().then(cameras => 
+        {
+            if(cameras.length > 0){
+                scanner.start(cameras[0]);
+            } else {
+                console.error("no hay camara disponible");
+            }
+        });
+    </script>
+    <div align="center"><p>COLOQUE EL CODIGO QR FRENTE A SU CAMARA PARA ESCANEARLO</p></div>
+ </body>
+</html>
