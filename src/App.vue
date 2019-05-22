@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="glossy">
-      <q-toolbar>
+      <q-toolbar color="amber" text-color="dark" inverted>
         <q-btn
           flat
           dense
@@ -11,8 +11,9 @@
           icon="menu"
         />
 
-        <q-toolbar-title>
-          Projecto de Interacción Humano Computador
+
+        <q-toolbar-title color='red'>
+          Reciclar
         </q-toolbar-title>
 
         <div></div>
@@ -76,12 +77,14 @@
 
     <q-page-container>
       <login />
+      <registro />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import Login from './components/login.vue'
+import Registro from './components/registro.vue'
 
 export default {
   name: 'LayoutDefault',
