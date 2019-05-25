@@ -1,0 +1,60 @@
+--Universidad del Valle de Guatemala
+--HCI
+--Proyecto
+--Maquina de latas
+--Marcos Gutierrez
+--David Valenzuela
+--Mario sarmientos
+--Carlos Chew
+--Fernando hengstenberg
+
+
+--tabla de codigo 
+CREATE TABLE codigo(
+	--codigo para cangear 
+	codigo VARCHAR(20),
+	--el valor que tiene el codigo a cambiar
+	valorCodigo INTEGER,
+	--cuanto tiene que pagar el usuario por los puntos
+	valorEnPuntos INTEGER,
+	--marca del codigo-	
+	marca VARCHAR (50),
+	--ver si ya fue usado
+	usado VARCHAR (2),
+	--llave primaria
+	PRIMARY KEY (codigo));
+
+--tabla de usuario
+CREATE TABLE usuario(
+	--usuarios diferentes por todas las personas
+	usuarioID VARCHAR (20),
+	--nombre el usuario 
+	nombreCompleto VARCHAR (80),
+	--edad del usuario
+	edad INTEGER,
+	--correo electronico del usuario
+	email VARCHAR (80),
+	--puntos obtenidos en la maquina
+	puntos INTEGER,
+	PRIMARY KEY (usuarioID));
+				 
+				 
+--tabla para obtener los puntos de la maquina
+CREATE TABLE codigoMaquina(
+	--codigo para obtener los puntos
+	codigoMaquina VARCHAR (30),
+	--puntos que se dara por cada codigo
+	puntos INTEGER,
+	--ver si ya fue usado
+	usado VARCHAR (2));
+
+--creamos la tabla de la relacion
+CREATE TABLE codigosUsados(
+	--usuario que utiliza el codigo
+	usuarioID VARCHAR (20),
+	--codigo que es utilizado
+	codigo VARCHAR(20),
+	--referencia a usuario ID
+	FOREIGN KEY (usuarioID) REFERENCES usuario (usuarioID),
+	--referencia a codigo
+	FOREIGN KEY (codigo) REFERENCES codigo (codigo));
