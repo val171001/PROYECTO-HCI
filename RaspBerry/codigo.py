@@ -11,25 +11,6 @@
 #__importamos la libreria tkinter
 #__interfaz Grafica
 from tkinter import *
-from uuid import uuid4 as uuid
-import pyqrcode
-from collections import OrderedDict
-import requests
-
-#__variable de ejemplo para los codigos
-ejemplo=uuid().hex[:15]
-
-code = pyqrcode.create(ejemplo)
-
-url = 'https://hci-server-uvg.herokuapp.com/machine/code'
-params = OrderedDict([('code', ejemplo), ('points', 10)])
-
-results = requests.post(url, data={'code': ejemplo, 'points':10})
-print(results)
-
-code.png('code.png', scale=8)
-
-
 
 #__creamos la raiz
 raiz=Tk()
