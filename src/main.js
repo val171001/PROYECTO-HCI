@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
+import VueQrcodeReader from 'vue-qrcode-reader'
 
 
 import './styles/quasar.styl'
@@ -84,6 +84,8 @@ Vue.use(Quasar, {
     Loading
   }
  })
+
+ Vue.use(VueQrcodeReader)
 
 import Api from '@/Api'
 Vue.prototype.$http  = Api()
