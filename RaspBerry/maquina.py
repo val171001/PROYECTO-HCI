@@ -10,6 +10,25 @@
 #__importamos la libreria tkinter
 #__interfaz Grafica
 from tkinter import *
+from uuid import uuid4 as uuid
+import pyqrcode
+from collections import OrderedDict
+import requests
+
+#__variable de ejemplo para los codigos
+ejemplo=uuid().hex[:15]
+
+code = pyqrcode.create(ejemplo)
+
+url = 'https://hci-server-uvg.herokuapp.com/machine/code'
+params = OrderedDict([('code', ejemplo), ('points', 10)])
+
+results = requests.post(url, data={'code': ejemplo, 'points':10})
+print(results)
+
+code.png('code.png', scale=8)
+
+
 
 #__creamos la raiz
 raiz=Tk()
@@ -67,6 +86,8 @@ informacion_instrucciones =Label(frame,text="Instrucciones",fg="forestgreen", fo
 #__informacion_instrucciones
 imformacion_parrafo_instrucciones=Label(frame,text="Para poder hacer uso de la Maquina de reciclaje tienes que seguir las siguientes instrucciones, regístrate en nuestra pagina web para tener tu propio usuario e ir acumulando puntos con tu cuenta, ingresa una lata en la máquina y espera tu código, introduce tu código en la página web acumulando puntos, al tener una cantidad de puntos necesaria podrás cambiar estos por cupones en tiendas online, por saldo o internet en compañías telefónicas..",fg="black", font=("Comic Sans MS",12),wraplength=400,anchor="center",justify='center').place(x=540,y=230)
 
+imagen_qr=PhotoImage(file="code.png")
+lblcode=Label (raiz,image=imagen_qr).place(x=0,y=0)
 
 
 
