@@ -76,7 +76,9 @@ export default {
         this.$user.id = this.response[0].usuarioid
         this.$user.name = this.response[0].nombrecompleto
         this.$user.email = this.response[0].email
-        this.$user.age = this.response[0].edads    
+        this.$user.age = this.response[0].edad
+        router.push({name: 'Home'})
+
       } else {
         console.log('User not found!')
       }
