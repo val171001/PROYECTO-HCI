@@ -25,8 +25,12 @@
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
                     />
                     <div class="q-pa-md flex flex-center">
+                      <div class="q-pa-sm">
                         <q-btn type="submit" label="Iniciar sesion"/>
-                        <q-btn type='sumbit' label='Registrarse'/>
+                      </div>
+                      <div class="q-pa-sm">
+                        <q-btn label='Registrarse' @click="register"/>
+                      </div>
                     </div>
                 </q-form>
             </q-card-section>
@@ -39,8 +43,9 @@
 </style>
 
 <script>
+import router from '@/router'
 export default {
-  name: 'login',
+  name: 'Login',
   data() {
     return {
       username: '',
@@ -71,11 +76,14 @@ export default {
         this.$user.id = this.response[0].usuarioid
         this.$user.name = this.response[0].nombrecompleto
         this.$user.email = this.response[0].email
-        this.$user.age = this.response[0].edad     
+        this.$user.age = this.response[0].edads    
       } else {
-
+        console.log('User not found!')
       }
       this.$q.loading.hide()
+    },
+    register() {
+      router.push({name: 'Register'})
     }
   }
   }

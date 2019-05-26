@@ -76,23 +76,16 @@
     </q-drawer>
 
     <q-page-container>
-      <login />
-      <registro />
+      <router-view/>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import Login from './components/login.vue'
-import Registro from './components/registro.vue'
+
 
 export default {
   name: 'LayoutDefault',
-
-  components: {
-    Login
-  },
-
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
