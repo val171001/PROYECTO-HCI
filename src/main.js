@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import axios from 'axios'
+
 
 import './styles/quasar.styl'
 import '@quasar/extras/material-icons/material-icons.css'
@@ -36,7 +38,8 @@ import {
   QStepperNavigation,
   QSeparator,
   QDate,
-  QImg
+  QImg,
+  Loading
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -78,10 +81,21 @@ Vue.use(Quasar, {
   directives: {
   },
   plugins: {
+    Loading
   }
  })
 
+import Api from '@/Api'
+Vue.prototype.$http  = Api()
+
+Vue.prototype.$user = {
+  id: null,
+  email: null,
+  name: null,
+  age: null,
+}
 Vue.config.productionTip = false
+
 
 new Vue({
   render: h => h(App),
