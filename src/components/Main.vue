@@ -17,10 +17,9 @@
 
             </q-card>
 
-            <q-btn color="secondary" label="CANJEAR PUNTOS" @click="usePoints"/>
-            <q-btn color="secondary" label="VER MIS CODIGOS" @click="usedPoints"/>
-            <q-btn color="secondary" label="ESCANEAR CODIGO" @click="ScanCode"/>
-            <q-btn color="secondary" label="VER MIS CODIGOS" @click="usedPoints"/>
+            <q-btn outline style="color: goldenrod;" label="REDIMIR PUNTOS" @click="usePoints"/>
+            <q-btn outline style="color: goldenrod;" label="VER MIS CODIGOS" @click="usedPoints"/>
+            <q-btn outline style="color: goldenrod;" label="ESCANEAR CODIGO" @click="ScanCode"/>
             <q-btn color="deep-orange" glossy label="CERRAR SESION" @click="login"/>
 
         </div>
