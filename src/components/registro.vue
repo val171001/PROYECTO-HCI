@@ -11,15 +11,20 @@
             </q-card-section>
             -->
             <q-card-section class="q-gutter-xl">
-                <q-form @submit="">
+                <q-form @submit="register">
+                  <q-input
+                        label="Ingrese nombre"
+                        v-model="name"
+                        :rules="[val => val !== null && val !== '' || 'Por favor llene este campo.']"
+                    />
                     <q-input
                         label="Ingrese email"
                         v-model="email"
                         :rules="[val => val !== null && val !== '' || 'Por favor llene este campo.']"
                     />
                     <q-input
-                        label="Nombre de usuario"
-                        v-model="username"
+                        label="Edad"
+                        v-model="age"
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese nombre de usuario.']"
                     />
                     <q-input
@@ -35,7 +40,6 @@
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
                     />
                     <div class="q-pa-md flex flex-center">
-                        <q-btn type="submit" label="Iniciar sesion"/>
                         <q-btn type='sumbit' label='Registrarse'/>
                     </div>
                 </q-form>
@@ -44,18 +48,37 @@
     </div>
 </template>
 
-<style>
-</style>
-
 <script>
+import router from '@/router'
 export default {
   name: 'Registro',
 
   data(){
     return {
-      username: '',
+      age: '',
       password: '',
-      email: ''
+      email: '',
+      name: ''
+    }
+  },
+  methods: {
+    async register() {
+      let age = this.age
+      let password = this.password
+      let email = this.email
+      let name = this.name
+      const post = this.$http.post
+      await post(
+        '/client/signup',
+        {
+          name: name, age: age, email: email, password: password
+        }
+      ).then(res => {
+        console.log(res)
+        router.push({name: 'LogIn'})
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 }
