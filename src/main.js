@@ -41,6 +41,7 @@ import {
   QImg,
   Loading,
   Notify,
+  QPageSticky,
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -78,6 +79,7 @@ Vue.use(Quasar, {
     QSeparator,
     QDate,
     QImg,
+    QPageSticky,
   },
   directives: {
   },

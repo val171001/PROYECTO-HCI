@@ -35,7 +35,7 @@
 
        <div class="column items-center">
           <q-btn
-            v-if="buy"
+            v-if="able"
             label="Comprar"
             color='positive'
             size='l'

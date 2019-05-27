@@ -59,7 +59,11 @@ export default {
                     }
                 }
             ).then(results => {
-                this.points = results.data[0].puntos
+                if (results.data.length > 0) {
+                    this.points = results.data[0].puntos
+                } else {
+                    this.points = 0
+                }
             }).catch(error => {
                 console.log(error)
             })

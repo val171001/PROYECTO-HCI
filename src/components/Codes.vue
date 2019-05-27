@@ -11,10 +11,14 @@
                 <use-code :userid="user" :code="code.codigo" :marca="code.marca" :able="ableToBuy(code.valorenpuntos)" @buy="refresh"/>
             </q-card-section>
         </q-card>
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn fab icon="arrow_back" color="primary" @click="main"/>
+        </q-page-sticky>
     </div>
 </template>
 
 <script>
+import router from '@/router'
 import UseCode from '@/components/UseCode'
 export default {
     name: 'Codes',
@@ -65,11 +69,16 @@ export default {
             this.$q.loading.hide()
         },
         ableToBuy(price){
-            return this.points > (price+1)
+            var able =  this.points > (price+1)
+            console.log(able)
+            return able
         },
         refresh(){
             this.getCodes()
             this.getPoints()
+        },
+        main() {
+            router.push({name: 'Home'})
         }
     }
 }

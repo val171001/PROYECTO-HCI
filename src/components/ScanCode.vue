@@ -1,6 +1,9 @@
 <template>
     <div>
         <qrcode-stream @decode="onDecode"></qrcode-stream>
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+            <q-btn fab icon="arrow_back" color="primary" @click="main"/>
+        </q-page-sticky>
     </div>
 </template>
 <script>
@@ -48,6 +51,9 @@ export default {
             } else {
                 this.$q.notify({ color: 'negative', message: 'Codigo no valido', icon: 'report_problem' })
             }
+        },
+        main() {
+            router.push({name: 'Home'})
         }
     }
 }
