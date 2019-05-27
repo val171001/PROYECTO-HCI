@@ -14,7 +14,7 @@
             <q-card-section class="q-gutter-xl">
                 <q-form @submit="login">
                     <q-input
-                        label="Nombre de usuario"
+                        label="Ingrese su correo electronico"
                         v-model="username"
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese nombre de usuario.']"
                     />
