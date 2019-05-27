@@ -33,7 +33,7 @@
             <q-btn color="deep-orange" glossy label="CERRAR SESION" @click="login"/>
         </div>
         -->
-        <div class="q-pa-md row items-start q-gutter-md ">
+        <div class="q-pa-md  flex flex-center row items-start q-gutter-md ">
           <q-card class="my-card bg-positive text-white  ">
             <q-card-section>
               <div class="text-h6" center>BIENVENIDO</div>
@@ -43,7 +43,30 @@
             </q-card-section>
 
             <q-separator dark text='textos'/>
+            <!--Separador de los botones-->
+            <q-list class="bg-positive text-white shadow-2 rounded-borders" style="max-width: 250px; width: 100%;">
+               <q-item>
+                 <q-item-section avatar>
+                     <q-btn color="light-green-14" label="Redimir los puntos" @click="usePoints" size='md'/>
+                 </q-item-section>
+               </q-item>
+            </q-list>
+            <q-list class="bg-positive text-white shadow-2 rounded-borders" style="max-width: 250px; width: 100%;">
+               <q-item>
+                 <q-item-section avatar>
+                     <q-btn color="light-green-14" label="Revisar los puntos" @click="usedPoints" size='md'></q-btn>
+                 </q-item-section>
+               </q-item>
+            </q-list>
+            <q-list class="bg-positive text-white shadow-2 rounded-borders" style="max-width: 250px; width: 100%;">
+               <q-item>
+                 <q-item-section avatar>
+                     <q-btn color="light-green-14" label="Escanear Codigo" @click="ScanCode" size='md'></q-btn>
+                 </q-item-section>
+               </q-item>
+            </q-list>
 
+            <!--
             <q-card-actions class="text-white" style="min-width: 300px">
               <div class="flex flex-center">
                 <q-btn color="light-green-14" label="Redimir los puntos" @click="usePoints" size='md'/>
@@ -55,7 +78,7 @@
                 <q-btn color="light-green-14" label="Escanear Codigo" @click="ScanCode" size='md'></q-btn>
               </div>
             </q-card-actions>
-
+            -->
             <q-card class="my-card">
               <q-img
                 src=https://www.mentesliberadas.com/wp-content/uploads/2018/01/aprender-a-reciclar-1024x620.jpg
