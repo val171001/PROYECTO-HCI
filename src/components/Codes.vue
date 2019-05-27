@@ -8,7 +8,7 @@
                 <div class="text-h8">¡Unicamente mayor a {{code.valorenpuntos}} puntos por usuario, para canjear!</div>
             </q-card-section>
             <q-card-section>
-                <use-code :userid="user" :code="code.codigo" :marca="code.marca" :buy="ableToBuy(code.valorenpuntos)"/>
+                <use-code :userid="user" :code="code.codigo" :marca="code.marca" :able="ableToBuy(code.valorenpuntos)" @buy="refresh"/>
             </q-card-section>
         </q-card>
     </div>
@@ -29,9 +29,7 @@ export default {
         }
     },
     mounted () {
-        this.getCodes()
-        this.getPoints()
-        this.$q.loading.hide()
+        this.refresh()
     },
     methods: {
         async getCodes() {
@@ -45,6 +43,7 @@ export default {
             }).catch(error => {
                 console.log(error)
             })
+            this.$q.loading.hide()
         },
         async getPoints() {
             this.$q.loading.show({ delay: 400 })
@@ -63,9 +62,14 @@ export default {
             }).catch(error => {
                 console.log(error)
             })
+            this.$q.loading.hide()
         },
         ableToBuy(price){
             return this.points > (price+1)
+        },
+        refresh(){
+            this.getCodes()
+            this.getPoints()
         }
     }
 }

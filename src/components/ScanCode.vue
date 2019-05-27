@@ -1,13 +1,10 @@
 <template>
     <div>
         <qrcode-stream @decode="onDecode"></qrcode-stream>
-        <span>
-            {{response}}
-        </span>
-        <q-btn label="Camara" @click="login"/>
     </div>
 </template>
 <script>
+import router from '@/router'
 export default {
     name: 'ScanCode',
     data(){
@@ -41,6 +38,16 @@ export default {
                 console.log(error)
             })
             this.$q.loading.hide()
+            this.validate()
+        },
+        validate(){
+            let success = this.response[0].added
+            if (success) {
+                this.$q.notify({message: 'Puntos agregados exitosamente!'})
+                router.push({name: 'Home'})
+            } else {
+                this.$q.notify({ color: 'negative', message: 'Codigo no valido', icon: 'report_problem' })
+            }
         }
     }
 }

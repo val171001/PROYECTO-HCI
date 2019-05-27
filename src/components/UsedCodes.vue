@@ -60,6 +60,7 @@ export default {
     },
     methods: {
         async getCodes(){
+            this.$q.loading.show({ delay: 400 })
             const get = this.$http.get
             const id = this.$user.id
             await get(
@@ -77,6 +78,7 @@ export default {
         },
         main() {
           router.push({name: 'Home'})
+            this.$q.loading.hide()
         }
     }
 }
