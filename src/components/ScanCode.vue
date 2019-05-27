@@ -1,10 +1,6 @@
 <template>
     <div>
         <qrcode-stream @decode="onDecode"></qrcode-stream>
-        <span>
-            {{response}}
-        </span>
-        <q-btn label="Camara" @click="login"/>
     </div>
 </template>
 <script>
