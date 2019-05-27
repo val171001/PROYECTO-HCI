@@ -1,4 +1,5 @@
 <template>
+  
     <div>
         <div class="q-pa-md row items-start q-gutter-md">
             <q-card>
@@ -13,15 +14,18 @@
                 <q-card-section>
                     <div class="text-h6 flex flex-center">{{points}}</div>
                 </q-card-section>
+
             </q-card>
-            <q-btn label="Redimir puntos" @click="usePoints"/>
-            <q-btn label="Ver mis codigos" @click="usedPoints"/>
-            <q-btn label="Scan codigo" @click="ScanCode"/>
-            <q-btn label="Cerrar Sesion" @click="login"/>
-            <q-btn label="Ver mis códigos" @click="usedPoints"/>
-            <q-btn label="Scan código" @click="ScanCode"/>
+
+            <q-btn color="secondary" label="CANJEAR PUNTOS" @click="usePoints"/>
+            <q-btn color="secondary" label="VER MIS CODIGOS" @click="usedPoints"/>
+            <q-btn color="secondary" label="ESCANEAR CODIGO" @click="ScanCode"/>
+            <q-btn color="secondary" label="VER MIS CODIGOS" @click="usedPoints"/>
+            <q-btn color="deep-orange" glossy label="CERRAR SESION" @click="login"/>
+
         </div>
     </div>
+
 </template>
 
 <script>
