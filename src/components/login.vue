@@ -24,6 +24,12 @@
                         type="password"
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
                     />
+                    <!-- Boton para olvido de contraseña-->
+                    <q-btn
+                      label='¿Olvido su contraseña?'
+                      size='sm'
+                      color='positive'
+                    />
                     <div class="q-pa-md flex flex-center">
                       <div class="q-pa-sm">
                         <q-btn type="submit" label="Iniciar sesion"/>
@@ -32,12 +38,6 @@
                         <q-btn label='Registrarse' @click="register"/>
                       </div>
                     </div>
-                    <!-- Boton para olvido de contraseña-->
-                    <q-btn
-                      label='¿Olvido su contraseña?'
-                      size='sm'
-                      color='positive'
-                    />
                 </q-form>
             </q-card-section>
         </q-card>

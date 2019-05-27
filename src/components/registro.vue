@@ -11,15 +11,20 @@
             </q-card-section>
             -->
             <q-card-section class="q-gutter-xl">
-                <q-form @submit="">
+                <q-form @submit="register">
+                  <q-input
+                        label="Ingrese nombre"
+                        v-model="name"
+                        :rules="[val => val !== null && val !== '' || 'Por favor llene este campo.']"
+                    />
                     <q-input
                         label="Ingrese email"
                         v-model="email"
                         :rules="[val => val !== null && val !== '' || 'Por favor llene este campo.']"
                     />
                     <q-input
-                        label="Nombre de usuario"
-                        v-model="username"
+                        label="Edad"
+                        v-model="age"
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese nombre de usuario.']"
                     />
                     <q-input
@@ -28,14 +33,7 @@
                         type="password"
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
                     />
-                    <q-input
-                        label="Ingrese nuevamente su contraseña"
-                        v-model="pass"
-                        type="password"
-                        :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
-                    />
                     <div class="q-pa-md flex flex-center">
-                        <q-btn type="submit" label="Iniciar sesion"/>
                         <q-btn type='sumbit' label='Registrarse'/>
                     </div>
                 </q-form>
@@ -44,19 +42,44 @@
     </div>
 </template>
 
-<style>
-</style>
-
 <script>
+import router from '@/router'
 export default {
   name: 'Registro',
 
   data(){
     return {
-      username: '',
+      age: '',
       password: '',
       email: '',
-      pass: ''
+      name: ''
+    }
+  },
+  methods: {
+    async register() {
+      this.$q.loading.show({ delay: 400 })
+      let age = this.age
+      let password = this.password
+      let email = this.email
+      let name = this.name
+      const post = this.$http.post
+      await post(
+        '/client/signup',
+        {
+          name: name, age: age, email: email, password: password
+        }
+      ).then(res => {
+        console.log(res)
+        if(res.data){
+          this.$q.notify({message: 'Usuario creado!'})
+          router.push({name: 'LogIn'})
+        } else {
+          this.$q.notify({ color: 'negative', message: 'Email ya se encuentra registrado', icon: 'report_problem' })
+        }
+      }).catch(error => {
+        this.$q.notify({ color: 'negative', message: 'Un error ha ocurrido!', icon: 'report_problem' })
+      })
+      this.$q.loading.hide()
     }
   }
 }
