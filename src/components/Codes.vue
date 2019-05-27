@@ -8,7 +8,7 @@
                 <div class="text-h8">¡Unicamente mayor a {{code.valorenpuntos}} puntos por usuario, para canjear!</div>
             </q-card-section>
             <q-card-section>
-                <use-code :userid="user" :code="code.codigo"/>
+                <use-code :userid="user" :code="code.codigo" :marca="code.marca"/>
             </q-card-section>
         </q-card>
     </div>
