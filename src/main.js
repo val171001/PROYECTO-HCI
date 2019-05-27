@@ -39,7 +39,8 @@ import {
   QSeparator,
   QDate,
   QImg,
-  Loading
+  Loading,
+  Notify,
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -76,12 +77,13 @@ Vue.use(Quasar, {
     QStepperNavigation,
     QSeparator,
     QDate,
-    QImg
+    QImg,
   },
   directives: {
   },
   plugins: {
-    Loading
+    Loading,
+    Notify
   }
  })
 
