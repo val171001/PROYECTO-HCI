@@ -25,11 +25,7 @@
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
                     />
                     <!-- Boton para olvido de contraseña-->
-                    <q-btn
-                      label='¿Olvido su contraseña?'
-                      size='sm'
-                      color='positive'
-                    />
+                    <forgot-password/>
                     <div class="q-pa-md flex flex-center">
                       <div class="q-pa-sm">
                         <q-btn type="submit" label="Iniciar sesion"/>
@@ -51,8 +47,12 @@
 
 <script>
 import router from '@/router'
+import ForgotPassword from '@/components/ForgotPassword'
 export default {
   name: 'Login',
+  components:{
+    ForgotPassword
+  },
   data() {
     return {
       username: '',
