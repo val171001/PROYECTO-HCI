@@ -37,14 +37,16 @@
           <q-btn
             v-if="buy"
             label="Comprar"
-            color='primary'
+            color='positive'
             size='l'
             @click="buy"
           />
           <span v-else>Necesitas mas puntos.</span>
+
        </div>
      </div>
  </div>
+ 
 <!--
  <div>
      <q-btn label="Comprar" @click="buy"/>
