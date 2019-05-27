@@ -3,12 +3,12 @@
         <div class="q-pa-md row items-start q-gutter-md">
             <q-card>
                 <q-card-section>
-                    <span> Bienvenido {{name}} </span>
+                    <span> BIENVENIDO {{name}} </span>
                 </q-card-section>
             </q-card>
             <q-card>
                 <q-card-section>
-                    <div class="text-h6">Puntos Disponibles</div>
+                    <div class="text-h6">PUNTOS DISPONIBLES</div>
                 </q-card-section>
                 <q-card-section>
                     <div class="text-h6 flex flex-center">{{points}}</div>
@@ -18,6 +18,8 @@
             <q-btn label="Ver mis codigos" @click="usedPoints"/>
             <q-btn label="Scan codigo" @click="ScanCode"/>
             <q-btn label="Cerrar Sesion" @click="login"/>
+            <q-btn label="Ver mis códigos" @click="usedPoints"/>
+            <q-btn label="Scan código" @click="ScanCode"/>
         </div>
     </div>
 </template>
