@@ -35,11 +35,13 @@
 
        <div class="column items-center">
           <q-btn
+            v-if="buy"
             label="Comprar"
             color='primary'
             size='l'
             @click="buy"
           />
+          <span v-else>Necesitas mas puntos.</span>
        </div>
      </div>
  </div>
@@ -53,7 +55,7 @@
 <script>
 export default {
     name: 'UsePoints',
-    props: ["userid", "code", "marca"],
+    props: ["userid", "code", "marca", "buy"],
     methods: {
         async buy(){
             console.log(this.userid, this.code)
