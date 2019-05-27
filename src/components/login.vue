@@ -71,7 +71,7 @@ export default {
       }).catch(error => {
         console.log(error)
       })
-      
+
       if(this.response.length > 0){
         this.$user.id = this.response[0].usuarioid
         this.$user.name = this.response[0].nombrecompleto

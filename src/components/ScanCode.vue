@@ -4,6 +4,7 @@
         <span>
             {{response}}
         </span>
+        <q-btn label="Camara" @click="login"/>
     </div>
 </template>
 <script>
@@ -31,7 +32,7 @@ export default {
                 {
                     params: {
                         email: email,
-                        code: code  
+                        code: code
                     }
                 }
             ).then( res => {
@@ -44,4 +45,3 @@ export default {
     }
 }
 </script>
-

@@ -13,7 +13,7 @@
 
 
         <q-toolbar-title color='red'>
-          Reciclar
+          Maquina para Salvar el Mundo
         </q-toolbar-title>
 
         <div></div>

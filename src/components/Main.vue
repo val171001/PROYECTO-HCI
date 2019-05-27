@@ -17,6 +17,7 @@
             <q-btn label="Redimir puntos" @click="usePoints"/>
             <q-btn label="Ver mis codigos" @click="usedPoints"/>
             <q-btn label="Scan codigo" @click="ScanCode"/>
+            <q-btn label="Cerrar Sesion" @click="login"/>
         </div>
     </div>
 </template>
@@ -60,6 +61,9 @@ export default {
         },
         ScanCode(){
             router.push({name: 'ScanCode'})
+        },
+        login(){
+          router.push({name: 'LogIn'})
         }
     }
 }
