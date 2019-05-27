@@ -30,6 +30,7 @@ export default {
     },
     methods: {
         async getCodes(){
+            this.$q.loading.show({ delay: 400 })
             const get = this.$http.get
             const id = this.$user.id
             await get(
@@ -44,6 +45,7 @@ export default {
             }).catch(error => {
                 console.log(error)
             })
+            this.$q.loading.hide()
         }
     }
 }

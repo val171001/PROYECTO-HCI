@@ -53,12 +53,18 @@
 </template>
 
 <script>
+import router from '@/router'
 export default {
     name: 'UsePoints',
-    props: ["userid", "code", "marca", "buy"],
+    props: ["userid", "code", "marca", "able"],
+    data() {
+      return {
+        response: null
+      }
+    },
     methods: {
         async buy(){
-            console.log(this.userid, this.code)
+          this.$q.loading.show({ delay: 400 })
             const post = this.$http.post
             await post(
                 '/client/user/get/code',
@@ -67,10 +73,19 @@ export default {
                     code: this.code
                 }
             ).then(results => {
-                console.log(results)
+                this.response = results.data[0].usepoints
             }).catch(error => {
                 console.log(error)
             })
+            this.validate()
+            this.$q.loading.hide()
+        },
+        validate() {
+          let res = this.response
+          if(res) {
+            this.$q.notify({message:'Comprado exitosamente'})
+            this.$emit('buy')
+          }
         }
     }
 }
