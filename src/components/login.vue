@@ -80,7 +80,7 @@ export default {
         router.push({name: 'Home'})
 
       } else {
-        console.log('User not found!')
+        this.$q.notify({ color: 'negative', message: 'Usuario o contraseña no coinciden', icon: 'report_problem' })
       }
       this.$q.loading.hide()
     },
