@@ -80,8 +80,10 @@ Vue.use(Quasar, {
     QDate,
     QImg,
     QPageSticky,
+    QDialog,
   },
   directives: {
+    ClosePopup,
   },
   plugins: {
     Loading,

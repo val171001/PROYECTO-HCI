@@ -11,7 +11,7 @@
             </q-card-section>
             -->
             <q-card-section class="q-gutter-xl">
-                <q-form @submit="register">
+                <q-form @submit="saveUser">
                   <q-input
                         label="Ingrese nombre"
                         v-model="name"
@@ -36,6 +36,9 @@
                     <div class="q-pa-md flex flex-center">
                         <q-btn type='sumbit' label='Registrarse'/>
                     </div>
+                    <div class="q-pa-md flex flex-center">
+                        <q-btn label='Atras' @click="back"/>
+                    </div>
                 </q-form>
             </q-card-section>
         </q-card>
@@ -52,12 +55,12 @@ export default {
       age: '',
       password: '',
       email: '',
-      name: ''
+      name: '',
+      save: false
     }
   },
   methods: {
     async register() {
-      this.$q.loading.show({ delay: 400 })
       let age = this.age
       let password = this.password
       let email = this.email
@@ -70,16 +73,39 @@ export default {
         }
       ).then(res => {
         console.log(res)
-        if(res.data){
-          this.$q.notify({message: 'Usuario creado!'})
-          router.push({name: 'LogIn'})
-        } else {
-          this.$q.notify({ color: 'negative', message: 'Email ya se encuentra registrado', icon: 'report_problem' })
-        }
+        this.$q.notify({message: 'Usuario creado!'})
+        router.push({name: 'LogIn'})
       }).catch(error => {
         this.$q.notify({ color: 'negative', message: 'Un error ha ocurrido!', icon: 'report_problem' })
       })
+    },
+    async verify() {
+      const post = this.$http.post
+      let email = this.email
+      await post(
+        '/client/verify/email',
+        {
+          email: email
+        }
+      ).then(results => {
+        console.log(results)
+        this.save = !(results.data.length > 0)
+      }).catch(error => {
+        this.$q.notify({ color: 'negative', message: 'Un error ha ocurrido!', icon: 'report_problem' })
+      })
+    },
+    async saveUser(){
+      this.$q.loading.show({ delay: 400 })
+      await this.verify()
+      if(this.save){
+        await this.register()
+      } else {
+        this.$q.notify({ color: 'negative', message: 'Email ya se encuentra registrado', icon: 'report_problem' })
+      }
       this.$q.loading.hide()
+    },
+    back(){
+      router.push({name: 'LogIn'})
     }
   }
 }
