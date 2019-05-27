@@ -35,22 +35,11 @@
                     <div class="text-h6 flex flex-center">{{points}}</div>
                 </q-card-section>
             </q-card>
-<<<<<<< HEAD
 
             <q-btn outline style="color: goldenrod;" label="REDIMIR PUNTOS" @click="usePoints"/>
             <q-btn outline style="color: goldenrod;" label="VER MIS CODIGOS" @click="usedPoints"/>
             <q-btn outline style="color: goldenrod;" label="ESCANEAR CODIGO" @click="ScanCode"/>
 
-
-
-=======
-            <q-btn label="Redimir puntos" @click="usePoints"/>
-            <q-btn label="Ver mis codigos" @click="usedPoints"/>
-            <q-btn label="Scan codigo" @click="ScanCode"/>
-            <q-btn label="Cerrar Sesion" @click="login"/>
-            <q-btn label="Ver mis códigos" @click="usedPoints"/>
-            <q-btn label="Scan código" @click="ScanCode"/>
->>>>>>> 9dc5b5cd7c3163b47d3b741ddacba73e1a3bb09d
         </div>
     </div>
 
