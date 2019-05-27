@@ -30,7 +30,7 @@
                     />
                     <q-input
                         label="Ingrese nuevamente su contraseña"
-                        v-model="password"
+                        v-model="pass"
                         type="password"
                         :rules="[val => val !== null && val !== '' || 'Por favor ingrese contraseña.']"
                     />
@@ -55,7 +55,8 @@ export default {
     return {
       username: '',
       password: '',
-      email: ''
+      email: '',
+      pass: ''
     }
   }
 }
