@@ -91,7 +91,7 @@
             </q-card>
           </q-card>
           <div class="q-pa-md q-gutter-sm">
-            <q-btn align="around" class="btn-fixed-width" color="amber-6" label="¡Ayuda!" icon="lightbulb_outline" />
+            <q-btn align="around" class="btn-fixed-width" color="amber-6" label="¡Ayuda!" icon="lightbulb_outline" @click="help" />
             <q-btn align="around" class="btn-fixed-width" color="negative" label="Cerrar Sesion" icon="img:https://image.flaticon.com/icons/png/512/56/56805.png" @click="login"/>
           </div>
 
@@ -145,6 +145,9 @@ export default {
         },
         login(){
           router.push({name: 'LogIn'})
+        },
+        help(){
+          router.push({name: 'Help'})
         }
     }
 }

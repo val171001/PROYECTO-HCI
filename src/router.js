@@ -6,6 +6,7 @@ import Main from '@/components/Main'
 import Codes from '@/components/Codes'
 import UsedCodes from '@/components/UsedCodes'
 import ScanCode from '@/components/ScanCode'
+import Help from '@/components/Help'
 
 
 Vue.use(Router)
@@ -43,6 +44,11 @@ export default new Router({
             path: '/scan',
             name: 'ScanCode',
             component: ScanCode
+        },
+        {
+            path: '/',
+            name: 'Help',
+            component: Help
         }
     ]
 })

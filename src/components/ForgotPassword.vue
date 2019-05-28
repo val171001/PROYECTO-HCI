@@ -19,11 +19,13 @@
                     />
                 </q-card-section>
                 <q-card-section>
-                    <div class="q-pa-md flex flex-center">
-                        <q-btn label="Aceptar" @click="handle"/>
-                    </div>
-                    <div class="q-pa-md flex-center">
-                      <q-btn align="around" class="btn-fixed-width" color="negative" label="Cancelar" icon="img:https://cdn.pixabay.com/photo/2012/04/12/19/41/red-30336_960_720.png" @click="show = !show"/>
+                    <div class="flex flex-center"> 
+                        <div class="q-pa-md">
+                            <q-btn label="Aceptar" @click="handle"/>
+                        </div>
+                        <div class="q-pa-md">
+                        <q-btn class="btn-fixed-width" color="negative" label="Cancelar" icon="img:https://cdn.pixabay.com/photo/2012/04/12/19/41/red-30336_960_720.png" @click="show = false"/>
+                        </div>
                     </div>
                 </q-card-section>
                 <q-card-section>
