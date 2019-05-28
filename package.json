@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node server.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -14,7 +15,8 @@
     "quasar": "^1.0.0-beta.1",
     "vue": "^2.6.10",
     "vue-qrcode-reader": "^2.0.1",
-    "vue-router": "^3.0.6"
+    "vue-router": "^3.0.6",
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
