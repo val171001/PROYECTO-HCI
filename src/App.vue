@@ -3,7 +3,7 @@
     <q-header elevated class="glossy">
       <q-toolbar color="amber" text-color="dark" inverted>
         <q-toolbar-title color='red'>
-          Maquina para Salvar el Mundo
+          Salvar al mundo.
         </q-toolbar-title>
 
         <div></div>

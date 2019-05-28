@@ -47,14 +47,14 @@
             <q-list class="bg-positive text-white shadow-2 rounded-borders" style="max-width: 250px; width: 100%;">
                <q-item>
                  <q-item-section avatar>
-                     <q-btn color="light-green-14" label="Redimir los puntos" @click="usePoints" size='md'/>
+                     <q-btn color="light-green-14" label="Cambiar puntos" @click="usePoints" size='md'/>
                  </q-item-section>
                </q-item>
             </q-list>
             <q-list class="bg-positive text-white shadow-2 rounded-borders" style="max-width: 250px; width: 100%;">
                <q-item>
                  <q-item-section avatar>
-                     <q-btn color="light-green-14" label="Revisar los puntos" @click="usedPoints" size='md'></q-btn>
+                     <q-btn color="light-green-14" label="Revisar compras" @click="usedPoints" size='md'></q-btn>
                  </q-item-section>
                </q-item>
             </q-list>
