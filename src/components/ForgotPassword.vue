@@ -5,6 +5,7 @@
             size='sm'
             color='positive'
             @click="show = !show"
+            disabled
         />
         <q-dialog v-model="show">
             <q-card style="min-width: 300px">
